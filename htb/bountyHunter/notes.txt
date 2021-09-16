@@ -1,0 +1,21 @@
+-------------
+NOTES
+-------------
+ip=10.129.216.13
+User flag = 6ae23186dc78ab86c702c6c2ea117ce2
+-------------
+PROCESS
+-------------
+No need to scan, happy path leads to incomplete portal
+
+fields for input, can see using burp and inspect element, that xml stanzas are used, can inject own xml
+	XXE opportunity
+
+Fail many times trying to creaft a legit one.
+
+https://github.com/payloadbox/xxe-injection-payload-list
+	Used access control bypass, chagning the resource.
+	tags need to be the tags in the orginal stanza (i used the title to inject &ac; DONT FORGET THE ; bc i did :)
+	can get db.php + /etc/passwd to get creds
+
+

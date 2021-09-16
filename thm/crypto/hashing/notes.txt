@@ -1,0 +1,34 @@
+Encoding is not hashing as it is reversible
+
+Hash Function
+	- No key and difficult to return to pre function
+	- Good hashing algos are fast to compute and slow to reverse 
+
+Hash Collision
+	- Two different inputs give the same output
+	- Unavoidable due to the pigeonhole effect
+		- There is a set amount of outcomes in any hashing algo, but infinite possible entries
+
+Useful info
+	- Automatic hash recognizing tools are unreliable and need context to better make decision
+	- MD5 is more common in the wild than NTLM
+		- If a tool gives NTLM it might be MD5
+	- UNIX password hashes format is $format$rounds$salt$hash
+	- Windows uses NTLM hashes
+		- Stored in the SAM
+	- Hashcat sites has a helpful list of example hashes
+		- https://hashcat.net/wiki/doku.php?id=example_hashes
+	- Never use --force in hashcat as it may lead to false positives
+	- Hashes with prefixes
+		- $1$				->	md5crypt
+		- $2$, $2a$, $2b$, $2x$, $2y$	->	bcrypt
+		- $6$				->	sha512crypt
+
+Hashcat commands
+	hashcat --hash-type=3200 -a 0 hashes /usr/share/wordlists/rockyou.txt --show
+	hashcat --hash-type=1800 -a 0 hashes /usr/share/wordlists/rockyou.txt 
+
+	--hash-type can be found on the link above or grep through the hashcat -h'
+	hashes is the input file 
+	followed by the wordlist
+	finally --show shows the cracked hash(es) and the out

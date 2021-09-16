@@ -1,0 +1,25 @@
+----------------------
+Notes
+-----------------------
+Always remember to check shared creds
+If you see a dirty command in the script, try to run in termnal
+
+---------------------
+Process
+---------------------
+port 80 open running gunicorn 
+
+Can find a directory (/data/) with gobuster
+	Default is /data/4 -> can nav to /data/0 and download the pcap
+
+In PCAP, user nathan logs into ftp with the password -> Buck3tH4TF0RM3!
+
+Stole creds to ftp server :)
+
+can ssh into nathan with the same creds 
+User flag -> 9d44723128d5a28e40ad10b4815b9852
+
+Looking in /var/www -> see app.py and a comment saying permissions issues with gunicorn and threads. hacky solution for now.
+	Not sure what is running the script, is in capture function, maybe upload a revshell to be executed by root?
+	Dont need the script! can just run the command in the terminal lol
+	Root flag = 4a3c1c089113b41982614e40bb08746e

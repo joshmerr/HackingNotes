@@ -1,0 +1,11 @@
+-------------------------------------------------------
+NOTES
+-------------------------------------------------------
+Overwriting files
+    - Uploading files with the same name
+    - Prevention
+        - Check file names
+        - append date/ time of upload to beginning or front of filename
+
+RCE
+    - Using revshells and webshells to send code
