@@ -1,0 +1,14 @@
+# Nmap 7.92 scan initiated Fri Sep 17 20:59:38 2021 as: nmap -p- -vv -oN nmap/ports 10.129.218.100
+Nmap scan report for 10.129.218.100
+Host is up, received conn-refused (0.020s latency).
+Scanned at 2021-09-17 20:59:38 EDT for 20s
+Not shown: 65530 closed tcp ports (conn-refused)
+PORT      STATE    SERVICE      REASON
+2222/tcp  open     EtherNetIP-1 syn-ack
+5555/tcp  filtered freeciv      no-response
+42135/tcp open     unknown      syn-ack
+44155/tcp open     unknown      syn-ack
+59777/tcp open     unknown      syn-ack
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Fri Sep 17 20:59:58 2021 -- 1 IP address (1 host up) scanned in 20.32 seconds

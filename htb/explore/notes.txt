@@ -1,0 +1,37 @@
+---------------------
+NOTES
+---------------------
+
+
+
+
+---------------------
+PROCESS
+---------------------
+PORT     STATE    SERVICE VERSION
+2222/tcp open     ssh     (protocol 2.0)
+| ssh-hostkey: 
+|_  2048 71:90:e3:a7:c9:5d:83:66:34:88:3d:eb:b4:c7:88:fb (RSA)
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-SSH Server - Banana Studio
+5555/tcp filtered freeciv
+1 service unrecognized despite returning data.
+
+exploit for andriod rce on freeciv andriod stuff
+	that didnt work
+
+more scanning showed high ports open, one running ES file explorer, which has an arb file read vuln
+can listPics and file creds.jpg
+
+
+ROOTING
+adbd is the abd daemon, abd is a tool to remotely connect to andriod devices
+when connceted to the box using the script.py, connected through ssh on port 5555
+therefore can forward the tcp traffic to my localhost:5555 giving a connection that adb can use
+	ssh kristi@explore.htb -L 5555:localhost:5555 -p 2222
+	-p 2222 is the port ssh is running on remote host
+then once a conncetion is established, can open another tab and use 
+	adb -s localhost:5555 shell 
+to create a shell on the connection previously forwarded
+can su to root due to misconfig of adbd 

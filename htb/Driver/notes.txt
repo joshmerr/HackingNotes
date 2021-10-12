@@ -1,0 +1,16 @@
+-------------
+NOTES
+-------------
+-------------
+PROCESS
+-------------
+
+nmap and see 80, 135, 445 open, would indicate this is windows
+	gobuster and nikto show nothing substantial
+
+Port 80 is a login, admin admin work as creds.. bruh leads to a firmware update center
+Can upload a revshell to the site, get a success message but not sure where it goes to
+
+Maybe can inject to the ?msg=SUCCESS in the url?
+
+Forced authentication - getting a victim SMB server to call back to a controlled listener. By default the SMB server will send credentials in an attempt to login, this gives the hash which can be cracked by hashcat

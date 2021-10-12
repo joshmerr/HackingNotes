@@ -1,0 +1,10 @@
+--------------
+NOTES
+--------------
+Opened r2 and stared at it blankly bc had no idea what was going on
+
+Ends up, takes user input that is unvalidated (through gets()) and stores.
+
+The ultimate check that needs to be messed with is the cmp of 0xdeadcode to 0xleetbabe
+
+if buffer is overflown then will print flag
