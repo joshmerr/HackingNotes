@@ -1,0 +1,5 @@
+NFS - Network file system
+	Allows a system to share directories and files with others over a network
+	Client mounts a remote directory much like physical device and connects to the mount using RPC
+	Server checks user perms and wil return a file handle which identifies each file adn directory
+

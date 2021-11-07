@@ -1,0 +1,6 @@
+------
+NOTES
+------
+Exploit is super easy, just compile with gcc and root is given..
+
+

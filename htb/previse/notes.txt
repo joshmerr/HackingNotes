@@ -1,0 +1,10 @@
+------------------
+Notes
+------------------
+
+Nmap scan only shows 22 is up to date
+	port 80 apache 2.4.29 outdated
+
+config.php is found but blank
+
+Can curl other pages that redirect (accounts.php)
