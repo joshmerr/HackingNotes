@@ -1,0 +1,7 @@
+-----------
+NOTES
+-----------
+
+Server blocks pings but is running microsoft ftp with anonymous login, can download chatserver.exe
+
+
