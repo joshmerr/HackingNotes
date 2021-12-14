@@ -1,0 +1,27 @@
+------------------
+NOTES
+------------------
+
+Epic scan using my tool is epic
+	Open port found at 10.129.197.194:80
+
+phpbash is a mf advanced webshell
+need to find it on the server
+
+looking through the gobuster output, in /dev
+!! look through info given in enumeration !!
+
+literal built in webshell, user in /home/arraxel
+	2c281f318555dbc1b856957c7147bfc1
+
+can sudo as the user scriptmanager
+	sudo -u (username)
+
+in the scripts directory, there is test.py which is executed by root every min
+	edit to create a reverse shell and ball out
+
+----------
+Reflection
+----------
+Very simple room but am rusty af at hacking, need more pracitce :)
+missing very obvious things like cron and checking dirs found in gobuster....

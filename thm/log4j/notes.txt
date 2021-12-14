@@ -1,3 +1,7 @@
 ------------------
 NOTES
 ------------------
+log4j - prob a bad thing lol
+
+nmap scanning, port 8983
+	apache solr
