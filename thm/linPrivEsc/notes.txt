@@ -1,0 +1,14 @@
+------------------
+NOTES
+------------------
+Once priv esc is achieved
+    Resetting passwords
+    Bypassing access controls to compromise protected data
+    Editing software configurations
+    Enabling persistence
+    Changing the privilege of existing (or new) users
+    Execute any administrative command
+
+/proc/version
+/etc/issue
+

@@ -1,0 +1,7 @@
+------------------
+NOTES
+------------------
+
+Open port found at 10.129.166.220:22
+Open port found at 10.129.166.220:80
+	wordpress
