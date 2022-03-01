@@ -1,0 +1,47 @@
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-01-18 17:58 EST
+Nmap scan report for pandora.htb (10.129.178.190)
+Host is up (0.015s latency).
+
+PORT    STATE SERVICE
+161/udp open  snmp
+| snmp-processes: 
+|   1: 
+|   2: 
+|   3: 
+|   4: 
+|   5: 
+|   6: 
+|   9: 
+|   10: 
+|   11: 
+|   12: 
+|   13: 
+|   14: 
+|   15: 
+|   16: 
+|   17: 
+|   18: 
+|   20: 
+|   21: 
+|   22: 
+|   23: 
+|   24: 
+|   25: 
+|   26: 
+|   27: 
+|   28: 
+|   29: 
+|   30: 
+|   35: 
+|   77: 
+|   78: 
+|   79: 
+|   80: 
+|   81: 
+|   82: 
+|   83: 
+|   84: 
+|   85: 
+|_  88: 
+
+Nmap done: 1 IP address (1 host up) scanned in 5.92 seconds
