@@ -1,0 +1,37 @@
+---------------
+NOTES
+---------------
+
+Get a box with an ip - 104.39.237.154
+	need to scan for it
+		arp-scan or nmap -s
+
+nmap - leads to two ports, 22 and 3000 which is weird, 3000 is a web server
+
+Website
+-----
+Nothing too special, the login page redirects to /login
+Gobuster wont work, everything is redirected to index
+
+analysis of js files
+	inspect the login page and look at the debug console
+	can look in the js to find an api endpoint
+
+/api/users
+	has password hashes, can crack most of them using online crackstation - sha256 (weak and gay)
+	myP14ceAdm1nAcc0uNT:manchester
+	tom:spongebob
+	mark:snowflake
+	rastating:???
+
+log in to admin panel with the creds - can download a backup file
+	ends with a =, most likely b64 enc
+
+cat myplace.backup | b64 -d > dec
+file dec
+	zip archive
+mv dec dec.zip
+unzip dec.zip
+	enter the password
+
+cracking a zip archive password 
