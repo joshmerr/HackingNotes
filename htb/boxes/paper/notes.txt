@@ -1,0 +1,17 @@
+------------------
+NOTES
+------------------
+
+Nginx default install page, 2.4
+Box is centos
+
+curl -I $ip
+	can find the backend server
+
+Running wordpress, has a vuln to view old posts
+
+secret link to chat app
+can get files from recyclops
+
+dwight:Queenofblad3s!23
+
