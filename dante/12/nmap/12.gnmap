@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:37:23 2021 as: nmap -sV -sC -oA nmap/12 172.16.1.12
+Host: 172.16.1.12 ()	Status: Up
+Host: 172.16.1.12 ()	Ports: 21/open/tcp//ftp///, 22/open/tcp//ssh//OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.43 ((Unix) OpenSSL|1.1.1g PHP|7.4.7 mod_perl|2.0.11 Perl|v5.30.3)/, 443/open/tcp//ssl|http//Apache httpd 2.4.43 ((Unix) OpenSSL|1.1.1g PHP|7.4.7 mod_perl|2.0.11 Perl|v5.30.3)/, 3306/open/tcp//mysql?///	Ignored State: closed (995)
+# Nmap done at Tue Dec 28 07:40:11 2021 -- 1 IP address (1 host up) scanned in 168.34 seconds

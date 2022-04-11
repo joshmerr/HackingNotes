@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:44:19 2021 as: nmap -sV -sC -oA nmap/19 172.16.1.19
+Host: 172.16.1.19 ()	Status: Up
+Host: 172.16.1.19 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.41/, 8080/open/tcp//http//Jetty 9.4.27.v20200227/	Ignored State: closed (998)
+# Nmap done at Tue Dec 28 07:44:38 2021 -- 1 IP address (1 host up) scanned in 18.90 seconds

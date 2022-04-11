@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:42:44 2021 as: nmap -sV -sC -oA nmap/17 172.16.1.17
+Host: 172.16.1.17 ()	Status: Up
+Host: 172.16.1.17 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.41/, 139/open/tcp//netbios-ssn//Samba smbd 4.6.2/, 445/open/tcp//netbios-ssn//Samba smbd 4.6.2/, 10000/open/tcp//http//MiniServ 1.900 (Webmin httpd)/	Ignored State: closed (996)
+# Nmap done at Tue Dec 28 07:43:18 2021 -- 1 IP address (1 host up) scanned in 33.54 seconds

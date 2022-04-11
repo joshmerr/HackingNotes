@@ -1,0 +1,32 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:42:44 2021 as: nmap -sV -sC -oA nmap/17 172.16.1.17
+Nmap scan report for 172.16.1.17
+Host is up (0.012s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT      STATE SERVICE     VERSION
+80/tcp    open  http        Apache httpd 2.4.41
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| 37M   2020-06-25 13:00  webmin-1.900.zip
+| -     2020-07-13 02:21  webmin/
+|_
+|_http-title: Index of /
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+139/tcp   open  netbios-ssn Samba smbd 4.6.2
+445/tcp   open  netbios-ssn Samba smbd 4.6.2
+10000/tcp open  http        MiniServ 1.900 (Webmin httpd)
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Login to Webmin
+Service Info: Host: 127.0.0.1
+
+Host script results:
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-12-28T12:48:33
+|_  start_date: N/A
+|_clock-skew: 5m20s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Dec 28 07:43:18 2021 -- 1 IP address (1 host up) scanned in 33.54 seconds

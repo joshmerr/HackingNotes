@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Dec 28 08:01:52 2021 as: nmap -sV -sC -oA 1/nmap 172.16.1.1
+Host: 172.16.1.1 ()	Status: Up
+Host: 172.16.1.1 ()	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//ssl|http//nginx/	Ignored State: closed (998)
+# Nmap done at Tue Dec 28 08:02:18 2021 -- 1 IP address (1 host up) scanned in 25.71 seconds
