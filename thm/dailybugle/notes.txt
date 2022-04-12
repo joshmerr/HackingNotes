@@ -1,0 +1,27 @@
+------------------
+NOTES
+------------------
+
+------------------
+PROCESS
+------------------
+
+spiderman robbed the bank
+
+joomla version 3.7.0
+
+script used to get a hash
+
+used hashid to find the hashtype
+
+jonah:spiderman for admin panel
+
+in admin panel can edit code of the templates
+
+reverse shell with apache user
+
+in config file, pull the creds for user
+
+user has sudo for yum
+
+gtfobins privesc
