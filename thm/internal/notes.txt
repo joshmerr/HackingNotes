@@ -5,3 +5,24 @@ NOTES
 ------------------
 PROCESS
 ------------------
+
+LINUX LETS GOOOOOO
+wordpress site using wpscan to enum
+
+using wpscan to enum for vulnerable plugins and users
+	wpscan --url url -e vp, u
+
+bruteforce the login with wpscan
+	admin:my2boys
+
+log in and change the theme to have a rev shell in the php
+wordpress/wp-content/themes/themename/404.php
+
+wp file in /opt
+	aubreanna:bubb13guM!@#123
+
+bruteforce the jenkins login comparing response length
+easiest way to exploit jenkins to the put a rev shell in the script console
+	https://gist.github.com/frohoff/fed1ffaab9b9beeb1c76
+
+creds in /opt and su to root
