@@ -1,0 +1,8 @@
+------------------
+NOTES
+------------------
+
+Fuzzing script
+	will repeatedly connect and send x amount of bytes until a crash occurs (really awesome)
+
+
