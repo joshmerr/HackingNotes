@@ -1,0 +1,23 @@
+------------------
+NOTES
+------------------
+
+------------------
+PROCESS
+------------------
+port scan for 2 open ports
+
+dns fuzz for dev01 and add it to the hosts file
+
+webapp is displaying the metadata of an image uploaded
+	mostlikely using exiftool
+	https://github.com/convisolabs/CVE-2021-22204-exiftool
+	https://blog.convisoappsec.com/en/a-case-study-on-cve-2021-22204-exiftool-rce/
+	can inject commands
+
+once foothold, pspy to see a bash script runnimg mogrify as user
+	can create a bad svg file and the auto task will execute the commands
+
+Final priv esc:
+	neofetch can be ran as sudo, need to change XDG env variable to == the .config dir
+	add /bin/bash to neofetch config file
