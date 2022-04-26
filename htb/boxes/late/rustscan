@@ -1,74 +1,25 @@
-# Nmap 7.92 scan initiated Sun Apr 24 16:45:19 2022 as: nmap -vvv -p 53,88,135,139,389,445,464,593,5986,9389,49668,49673,49674,49698 -Pn -sC -sV -oN rustscan 10.129.133.175
-Nmap scan report for 10.129.133.175
-Host is up, received user-set (0.014s latency).
-Scanned at 2022-04-24 16:45:19 EDT for 95s
+# Nmap 7.92 scan initiated Mon Apr 25 13:21:10 2022 as: nmap -vvv -p 22,80 -sC -sV -oN rustscan 10.129.50.97
+Nmap scan report for 10.129.50.97
+Host is up, received syn-ack (0.080s latency).
+Scanned at 2022-04-25 13:21:11 EDT for 9s
 
-PORT      STATE SERVICE       REASON  VERSION
-53/tcp    open  domain        syn-ack Simple DNS Plus
-88/tcp    open  kerberos-sec  syn-ack Microsoft Windows Kerberos (server time: 2022-04-25 04:45:24Z)
-135/tcp   open  msrpc         syn-ack Microsoft Windows RPC
-139/tcp   open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
-389/tcp   open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: timelapse.htb0., Site: Default-First-Site-Name)
-445/tcp   open  microsoft-ds? syn-ack
-464/tcp   open  kpasswd5?     syn-ack
-593/tcp   open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
-5986/tcp  open  ssl/http      syn-ack Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_ssl-date: 2022-04-25T04:46:53+00:00; +7h59m59s from scanner time.
-| ssl-cert: Subject: commonName=dc01.timelapse.htb
-| Issuer: commonName=dc01.timelapse.htb
-| Public Key type: rsa
-| Public Key bits: 2048
-| Signature Algorithm: sha256WithRSAEncryption
-| Not valid before: 2021-10-25T14:05:29
-| Not valid after:  2022-10-25T14:25:29
-| MD5:   e233 a199 4504 0859 013f b9c5 e4f6 91c3
-| SHA-1: 5861 acf7 76b8 703f d01e e25d fc7c 9952 a447 7652
-| -----BEGIN CERTIFICATE-----
-| MIIDCjCCAfKgAwIBAgIQLRY/feXALoZCPZtUeyiC4DANBgkqhkiG9w0BAQsFADAd
-| MRswGQYDVQQDDBJkYzAxLnRpbWVsYXBzZS5odGIwHhcNMjExMDI1MTQwNTI5WhcN
-| MjIxMDI1MTQyNTI5WjAdMRswGQYDVQQDDBJkYzAxLnRpbWVsYXBzZS5odGIwggEi
-| MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDJdoIQMYt47skzf17SI7M8jubO
-| rD6sHg8yZw0YXKumOd5zofcSBPHfC1d/jtcHjGSsc5dQQ66qnlwdlOvifNW/KcaX
-| LqNmzjhwL49UGUw0MAMPAyi1hcYP6LG0dkU84zNuoNMprMpzya3+aU1u7YpQ6Dui
-| AzNKPa+6zJzPSMkg/TlUuSN4LjnSgIV6xKBc1qhVYDEyTUsHZUgkIYtN0+zvwpU5
-| isiwyp9M4RYZbxe0xecW39hfTvec++94VYkH4uO+ITtpmZ5OVvWOCpqagznTSXTg
-| FFuSYQTSjqYDwxPXHTK+/GAlq3uUWQYGdNeVMEZt+8EIEmyL4i4ToPkqjPF1AgMB
-| AAGjRjBEMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNV
-| HQ4EFgQUZ6PTTN1pEmDFD6YXfQ1tfTnXde0wDQYJKoZIhvcNAQELBQADggEBAL2Y
-| /57FBUBLqUKZKp+P0vtbUAD0+J7bg4m/1tAHcN6Cf89KwRSkRLdq++RWaQk9CKIU
-| 4g3M3stTWCnMf1CgXax+WeuTpzGmITLeVA6L8I2FaIgNdFVQGIG1nAn1UpYueR/H
-| NTIVjMPA93XR1JLsW601WV6eUI/q7t6e52sAADECjsnG1p37NjNbmTwHabrUVjBK
-| 6Luol+v2QtqP6nY4DRH+XSk6xDaxjfwd5qN7DvSpdoz09+2ffrFuQkxxs6Pp8bQE
-| 5GJ+aSfE+xua2vpYyyGxO0Or1J2YA1CXMijise2tp+m9JBQ1wJ2suUS2wGv1Tvyh
-| lrrndm32+d0YeP/wb8E=
-|_-----END CERTIFICATE-----
-|_http-title: Not Found
-|_http-server-header: Microsoft-HTTPAPI/2.0
-| tls-alpn: 
-|_  http/1.1
-9389/tcp  open  mc-nmf        syn-ack .NET Message Framing
-49668/tcp open  msrpc         syn-ack Microsoft Windows RPC
-49673/tcp open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
-49674/tcp open  msrpc         syn-ack Microsoft Windows RPC
-49698/tcp open  msrpc         syn-ack Microsoft Windows RPC
-Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
-
-Host script results:
-|_clock-skew: mean: 7h59m58s, deviation: 0s, median: 7h59m58s
-| smb2-security-mode: 
-|   3.1.1: 
-|_    Message signing enabled and required
-| p2p-conficker: 
-|   Checking for Conficker.C or higher...
-|   Check 1 (port 13664/tcp): CLEAN (Timeout)
-|   Check 2 (port 28340/tcp): CLEAN (Timeout)
-|   Check 3 (port 59162/udp): CLEAN (Timeout)
-|   Check 4 (port 40355/udp): CLEAN (Timeout)
-|_  0/4 checks are positive: Host is CLEAN or ports are blocked
-| smb2-time: 
-|   date: 2022-04-25T04:46:13
-|_  start_date: N/A
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 02:5e:29:0e:a3:af:4e:72:9d:a4:fe:0d:cb:5d:83:07 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSqIcUZeMzG+QAl/4uYzsU98davIPkVzDmzTPOmMONUsYleBjGVwAyLHsZHhgsJqM9lmxXkb8hT4ZTTa1azg4JsLwX1xKa8m+RnXwJ1DibEMNAO0vzaEBMsOOhFRwm5IcoDR0gOONsYYfz18pafMpaocitjw8mURa+YeY21EpF6cKSOCjkVWa6yB+GT8mOcTZOZStRXYosrOqz5w7hG+20RY8OYwBXJ2Ags6HJz3sqsyT80FMoHeGAUmu+LUJnyrW5foozKgxXhyOPszMvqosbrcrsG3ic3yhjSYKWCJO/Oxc76WUdUAlcGxbtD9U5jL+LY2ZCOPva1+/kznK8FhQN
+|   256 41:e1:fe:03:a5:c7:97:c4:d5:16:77:f3:41:0c:e9:fb (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBMen7Mjv8J63UQbISZ3Yju+a8dgXFwVLgKeTxgRc7W+k33OZaOqWBctKs8hIbaOehzMRsU7ugP6zIvYb25Kylw=
+|   256 28:39:46:98:17:1e:46:1a:1e:a1:ab:3b:9a:57:70:48 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIGrWbMoMH87K09rDrkUvPUJ/ZpNAwHiUB66a/FKHWrj
+80/tcp open  http    syn-ack nginx 1.14.0 (Ubuntu)
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD
+|_http-title: Late - Best online image tools
+|_http-favicon: Unknown favicon MD5: 1575FDF0E164C3DB0739CF05D9315BDF
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun Apr 24 16:46:54 2022 -- 1 IP address (1 host up) scanned in 95.37 seconds
+# Nmap done at Mon Apr 25 13:21:20 2022 -- 1 IP address (1 host up) scanned in 9.54 seconds
