@@ -1,0 +1,17 @@
+# Nmap 7.92 scan initiated Tue Sep 13 16:34:24 2022 as: nmap -oA initial -T4 -sn 10.10.110.0/24
+Host: 10.10.110.3 ()	Status: Up
+Host: 10.10.110.5 ()	Status: Up
+Host: 10.10.110.10 ()	Status: Up
+Host: 10.10.110.12 ()	Status: Up
+Host: 10.10.110.20 ()	Status: Up
+Host: 10.10.110.25 ()	Status: Up
+Host: 10.10.110.45 ()	Status: Up
+Host: 10.10.110.58 ()	Status: Up
+Host: 10.10.110.60 ()	Status: Up
+Host: 10.10.110.78 ()	Status: Up
+Host: 10.10.110.102 ()	Status: Up
+Host: 10.10.110.119 ()	Status: Up
+Host: 10.10.110.205 ()	Status: Up
+Host: 10.10.110.213 ()	Status: Up
+Host: 10.10.110.254 ()	Status: Up
+# Nmap done at Tue Sep 13 16:34:26 2022 -- 256 IP addresses (15 hosts up) scanned in 2.21 seconds

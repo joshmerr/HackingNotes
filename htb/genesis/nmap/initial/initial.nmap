@@ -1,0 +1,32 @@
+# Nmap 7.92 scan initiated Tue Sep 13 16:34:24 2022 as: nmap -oA initial -T4 -sn 10.10.110.0/24
+Nmap scan report for 10.10.110.3
+Host is up (0.0086s latency).
+Nmap scan report for 10.10.110.5
+Host is up (0.0092s latency).
+Nmap scan report for 10.10.110.10
+Host is up (0.012s latency).
+Nmap scan report for 10.10.110.12
+Host is up (0.011s latency).
+Nmap scan report for 10.10.110.20
+Host is up (0.0063s latency).
+Nmap scan report for 10.10.110.25
+Host is up (0.0063s latency).
+Nmap scan report for 10.10.110.45
+Host is up (0.020s latency).
+Nmap scan report for 10.10.110.58
+Host is up (0.019s latency).
+Nmap scan report for 10.10.110.60
+Host is up (0.023s latency).
+Nmap scan report for 10.10.110.78
+Host is up (0.010s latency).
+Nmap scan report for 10.10.110.102
+Host is up (0.012s latency).
+Nmap scan report for 10.10.110.119
+Host is up (0.0065s latency).
+Nmap scan report for 10.10.110.205
+Host is up (0.0093s latency).
+Nmap scan report for 10.10.110.213
+Host is up (0.0051s latency).
+Nmap scan report for 10.10.110.254
+Host is up (0.0094s latency).
+# Nmap done at Tue Sep 13 16:34:26 2022 -- 256 IP addresses (15 hosts up) scanned in 2.21 seconds

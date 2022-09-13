@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.92 scan initiated Tue Sep 13 16:34:24 2022 as: nmap -oA initial -T4 -sn 10.10.110.0/24 -->
+<nmaprun scanner="nmap" args="nmap -oA initial -T4 -sn 10.10.110.0/24" start="1663083264" startstr="Tue Sep 13 16:34:24 2022" version="7.92" xmloutputversion="1.05">
+<verbose level="0"/>
+<debugging level="0"/>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.3" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="8638" rttvar="8638" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.5" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="9231" rttvar="9231" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.10" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="11991" rttvar="11991" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.12" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="10882" rttvar="10882" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.20" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="6333" rttvar="6333" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.25" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="6270" rttvar="6270" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.45" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="19663" rttvar="19663" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.58" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="19355" rttvar="19355" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.60" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="22605" rttvar="22605" to="113025"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.78" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="10147" rttvar="10147" to="100000"/>
+</host>
+<host><status state="up" reason="conn-refused" reason_ttl="0"/>
+<address addr="10.10.110.102" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="11593" rttvar="11593" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.119" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="6510" rttvar="6510" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.205" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="9291" rttvar="8240" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.213" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="5129" rttvar="5129" to="100000"/>
+</host>
+<host><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="10.10.110.254" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<times srtt="9409" rttvar="9409" to="100000"/>
+</host>
+<runstats><finished time="1663083266" timestr="Tue Sep 13 16:34:26 2022" summary="Nmap done at Tue Sep 13 16:34:26 2022; 256 IP addresses (15 hosts up) scanned in 2.21 seconds" elapsed="2.21" exit="success"/><hosts up="15" down="241" total="256"/>
+</runstats>
+</nmaprun>
