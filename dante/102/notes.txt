@@ -1,0 +1,8 @@
+------------------
+NOTES
+------------------
+
+RCE with the exploit (if server gets reset make a user w 9999999999 and password balls)
+
+
+c:\folder\obviousname

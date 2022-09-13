@@ -1,0 +1,30 @@
+------------------
+NOTES
+------------------
+Check the ftp server, find note with username (james)
+bruteforce login with rockyou
+	james:Toyota
+
+To gain RCE
+	edit theme not in use (I used header.php)
+		if twentytwenty is in use edit twentynineteen
+	shell as James
+
+Priv esc www-data -> james
+	su with same password
+
+Priv esc james -> root
+	find / -perm /4000 2>/dev/null
+	/usr/bin/find has a suid (lol)
+	/usr/bin/find . -exec /bin/sh -p \; -quit
+		root shell, very easy peasy
+
+OTHER
+-----------
+Nothing really useful in the mysql databases
+	Hashes:
+		admin:$P$BiINvM48wJ1iyfwOroCTdFhjB2qOvO.
+		james:$P$B/kdWnMDyh1oMT0QCG9YAyEu8Yt.M0.
+		(admin not crackable)
+
+Able to get the swap file to get a mysql user and pass but not super important rn - maybe useful in other boxes

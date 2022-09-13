@@ -1,0 +1,46 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:47:40 2021 as: nmap -sV -sC -oA nmap/102 172.16.1.102
+Nmap scan report for 172.16.1.102
+Host is up (0.012s latency).
+Not shown: 994 closed tcp ports (conn-refused)
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.5)
+|_http-title: Dante Marriage Registration System :: Home Page
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.5
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http      Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.5)
+|_http-title: Dante Marriage Registration System :: Home Page
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+|_ssl-date: TLS randomness does not represent time
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.5
+| tls-alpn: 
+|_  http/1.1
+445/tcp  open  microsoft-ds?
+3389/tcp open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: DANTE-WS03
+|   NetBIOS_Domain_Name: DANTE-WS03
+|   NetBIOS_Computer_Name: DANTE-WS03
+|   DNS_Domain_Name: DANTE-WS03
+|   DNS_Computer_Name: DANTE-WS03
+|   Product_Version: 10.0.18362
+|_  System_Time: 2021-12-28T13:53:25+00:00
+|_ssl-date: 2021-12-28T13:53:35+00:00; +1h05m20s from scanner time.
+| ssl-cert: Subject: commonName=DANTE-WS03
+| Not valid before: 2021-12-27T09:01:14
+|_Not valid after:  2022-06-28T09:01:14
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-12-28T13:53:29
+|_  start_date: N/A
+|_clock-skew: mean: 1h05m19s, deviation: 0s, median: 1h05m19s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Dec 28 07:48:16 2021 -- 1 IP address (1 host up) scanned in 36.19 seconds

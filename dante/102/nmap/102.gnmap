@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Dec 28 07:47:40 2021 as: nmap -sV -sC -oA nmap/102 172.16.1.102
+Host: 172.16.1.102 ()	Status: Up
+Host: 172.16.1.102 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.43 ((Win64) OpenSSL|1.1.1g PHP|7.4.5)/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 443/open/tcp//ssl|http//Apache httpd 2.4.43 ((Win64) OpenSSL|1.1.1g PHP|7.4.5)/, 445/open/tcp//microsoft-ds?///, 3389/open/tcp//ms-wbt-server//Microsoft Terminal Services/	Ignored State: closed (994)
+# Nmap done at Tue Dec 28 07:48:16 2021 -- 1 IP address (1 host up) scanned in 36.19 seconds

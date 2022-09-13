@@ -1,0 +1,49 @@
+------------------
+NOTES
+------------------
+Check the open smb share
+	-Remove wordpress install from web root - PENDING
+	-Reinstate Slack integration on Ubuntu machine - PENDING
+	-Remove old employee accounts - COMPLETE
+	-Inform Margaret of the new changes - COMPLETE
+	-Remove account restrictions on Margarets account post-promotion to admin - PENDING
+
+Know from notes in .100 there is a LFI vuln... but i assumed seeing the url without the notes :)
+	http://127.0.0.1:8000/nav.php?page=../../../../etc/passwd
+		POC for easy LFI
+
+We know there is a LFI vuln + wordpress in web root (/var/www/html)
+	http://127.0.0.1:8000/nav.php?page=../../../../var/www/html
+		gives nothing, blind LFI - no feed back unless you get it
+
+Try filters! - php filter to get the goods :)
+	http://127.0.0.1:8000/nav.php?page=php://filter/convert.base64-encode/resource=/var/www/html/wordpress/wp-config.php
+
+Pulled a password for Margaret which we know is a user on the box (from /etc/passwd)
+
+Margaret shell is very confined - cannot exit home dir and can only use like 5 commands (gay + annoying)
+	can use cd BUT can use vim and nav the file system this way
+		(in vim) :e /home/margaret/.config/Slack/exoported_data/secure
+		can read the conversation log and get two passwords:
+			STARS5678FORTUNE401 	- UBUNTU IMAGES
+				migrating to the ubuntu images
+			TractorHeadtorchDeskmat - 	new passsword, same username (meaning frank)
+
+SSH into frank with the password to get a stable and sane shell
+
+Nothing in linpeas or manual enum
+
+Upload pspy64 to the box
+	this will list all the processes running
+	https://github.com/DominicBreuker/pspy
+
+There is a process ran by UID = 0 (root) to call a file in the user's home dir
+
+PYTHON LIBRARY HIJACK FOR ROOT
+	see a script being run by root (apache_restart.py) on repeat (even tho nothing in cron!)
+	apache_restart is not writable by us however it imports two libraries he can hijack! (urllib and call or something)
+	create a new file called urllib.py with a dummy class to remove errors and a reverse shell (or any cmd)
+		apache_restart will execute the dummy class in the file and essentially do nothing, then once that is executed;
+		the reverse shell in the end of the script will be ran as root
+		check hijack.py for exmaple!
+	apache_restart will import this file instead of the real import and execute the code we injected (cool)

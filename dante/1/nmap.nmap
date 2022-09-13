@@ -1,0 +1,23 @@
+# Nmap 7.92 scan initiated Tue Dec 28 08:01:52 2021 as: nmap -sV -sC -oA 1/nmap 172.16.1.1
+Nmap scan report for 172.16.1.1
+Host is up (0.012s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     nginx
+|_http-title: Did not follow redirect to https://172.16.1.1/
+443/tcp open  ssl/http nginx
+| tls-nextprotoneg: 
+|   h2
+|_  http/1.1
+| tls-alpn: 
+|   h2
+|_  http/1.1
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=pfSense-5efcc658e3fe9/organizationName=pfSense webConfigurator Self-Signed Certificate
+| Subject Alternative Name: DNS:pfSense-5efcc658e3fe9
+| Not valid before: 2020-07-01T17:22:33
+|_Not valid after:  2025-12-22T17:22:33
+|_http-title: pfSense - Login
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Dec 28 08:02:18 2021 -- 1 IP address (1 host up) scanned in 25.71 seconds

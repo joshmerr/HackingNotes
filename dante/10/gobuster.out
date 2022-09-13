@@ -1,0 +1,5 @@
+/img                  (Status: 301) [Size: 311] [--> http://127.0.0.1:8000/img/]
+/css                  (Status: 301) [Size: 311] [--> http://127.0.0.1:8000/css/]
+/js                   (Status: 301) [Size: 310] [--> http://127.0.0.1:8000/js/]
+/fonts                (Status: 301) [Size: 313] [--> http://127.0.0.1:8000/fonts/]
+/server-status        (Status: 403) [Size: 276]

