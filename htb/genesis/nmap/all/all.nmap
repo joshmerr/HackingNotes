@@ -1,0 +1,410 @@
+# Nmap 7.92 scan initiated Tue Sep 13 13:52:33 2022 as: nmap -oA nmap/all -sV -sC 10.10.110.0/24
+Nmap scan report for 10.10.110.3
+Host is up (0.026s latency).
+Not shown: 989 closed tcp ports (conn-refused)
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Simple DNS Plus
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2022-09-13 21:55:02Z)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: genesis.local0., Site: Default-First-Site-Name)
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  tcpwrapped
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: genesis.local0., Site: Default-First-Site-Name)
+3269/tcp open  tcpwrapped
+Service Info: Host: DC01-PHOBOS; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2022-09-13T21:56:48
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled and required
+|_clock-skew: 4h00m00s
+
+Nmap scan report for 10.10.110.5
+Host is up (0.026s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT    STATE SERVICE       VERSION
+135/tcp open  msrpc         Microsoft Windows RPC
+139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2022-09-13T17:56:58
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+|_nbstat: NetBIOS name: SRV01-ARTEMIS, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b9:22:49 (VMware)
+
+Nmap scan report for 10.10.110.10
+Host is up (0.026s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 b3:29:9b:82:97:01:2b:5f:6e:41:91:f8:43:9e:e7:85 (DSA)
+|   2048 13:16:c3:34:ff:04:54:6a:1f:5d:46:9d:5b:44:a9:88 (RSA)
+|_  256 90:ba:2c:e7:d5:31:35:dd:d0:c9:19:11:d5:a7:a0:9c (ECDSA)
+3306/tcp open  mysql   MySQL 5.5.62-0ubuntu0.14.04.1
+| mysql-info: 
+|   Protocol: 10
+|   Version: 5.5.62-0ubuntu0.14.04.1
+|   Thread ID: 543
+|   Capabilities flags: 63487
+|   Some Capabilities: DontAllowDatabaseTableColumn, SupportsCompression, SupportsLoadDataLocal, FoundRows, Speaks41ProtocolNew, InteractiveClient, Speaks41ProtocolOld, LongPassword, SupportsTransactions, LongColumnFlag, IgnoreSigpipes, IgnoreSpaceBeforeParenthesis, ODBCClient, Support41Auth, ConnectWithDatabase, SupportsAuthPlugins, SupportsMultipleResults, SupportsMultipleStatments
+|   Status: Autocommit
+|   Salt: 0b~sFBZ|"1o\aRV;`QXE
+|_  Auth Plugin Name: mysql_native_password
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.12
+Host is up (0.024s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.5
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.40
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.5 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: PASV IP 192.168.1.12 is not the same as 10.10.110.12
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 c0:94:96:9e:42:60:db:f6:3f:57:0c:85:2c:92:d4:41 (ECDSA)
+|_  256 08:30:2e:7e:0c:1b:9c:42:2c:cf:5f:84:5d:50:dc:b3 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Cloud Explorer
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.20
+Host is up (0.025s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT    STATE SERVICE       VERSION
+21/tcp  open  ftp           Microsoft ftpd
+| ftp-syst: 
+|_  SYST: Windows_NT
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can't get directory listing: PASV IP 192.168.1.20 is not the same as 10.10.110.20
+135/tcp open  msrpc         Microsoft Windows RPC
+139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2022-09-14T00:57:02
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+|_clock-skew: 7h00m01s
+
+Nmap scan report for 10.10.110.25
+Host is up (0.024s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT    STATE SERVICE       VERSION
+135/tcp open  msrpc         Microsoft Windows RPC
+139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2022-09-13T17:57:13
+|_  start_date: N/A
+
+Nmap scan report for 10.10.110.45
+Host is up (0.025s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 04:a7:4f:39:95:65:c5:b0:8d:d5:49:2e:d8:44:00:36 (ECDSA)
+|_  256 b4:5e:83:93:c5:42:49:de:71:25:92:71:23:b1:85:54 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+| http-title: Beta Login
+|_Requested resource was http://10.10.110.45/login/
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.58
+Host is up (0.025s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE      VERSION
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds
+1433/tcp open  ms-sql-s     Microsoft SQL Server 2019 15.00.2000.00; RTM
+| ms-sql-ntlm-info: 
+|   Target_Name: SQL01-HERA
+|   NetBIOS_Domain_Name: SQL01-HERA
+|   NetBIOS_Computer_Name: SQL01-HERA
+|   DNS_Domain_Name: SQL01-Hera
+|   DNS_Computer_Name: SQL01-Hera
+|_  Product_Version: 10.0.14393
+|_ssl-date: 2022-09-13T17:57:37+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2022-09-13T09:37:46
+|_Not valid after:  2052-09-13T09:37:46
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| ms-sql-info: 
+|   10.10.110.58:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|     TCP port: 1433
+|   \\10.10.110.58\pipe\MSSQL$SQLEXPRESS\sql\query: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    Named pipe: \\10.10.110.58\pipe\MSSQL$SQLEXPRESS\sql\query
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb-os-discovery: 
+|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
+|   Computer name: SQL01-Hera
+|   NetBIOS computer name: SQL01-HERA\x00
+|   Workgroup: GENESIS\x00
+|_  System time: 2022-09-13T18:57:09+01:00
+|_clock-skew: mean: -11m54s, deviation: 26m40s, median: 0s
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2022-09-13T17:57:06
+|_  start_date: 2022-09-13T09:37:39
+
+Nmap scan report for 10.10.110.60
+Host is up (0.027s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 e2:28:f4:89:48:51:c4:ab:66:b0:5a:5f:5c:7e:5c:14 (ECDSA)
+|_  256 e0:ba:ba:30:43:3d:88:5a:8a:c7:ec:3b:83:78:18:82 (ED25519)
+80/tcp open  http    Werkzeug httpd 2.0.2 (Python 3.10.4)
+|_http-title: Genesis LLC
+|_http-server-header: Werkzeug/2.0.2 Python/3.10.4
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.78
+Host is up (0.026s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT     STATE SERVICE          VERSION
+22/tcp   open  ssh              OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 52:35:c4:ed:48:07:16:17:20:4a:84:18:f6:2e:55:3e (ECDSA)
+|_  256 08:3d:05:a1:73:d6:1f:df:26:2c:85:38:e8:69:c8:ce (ED25519)
+6123/tcp open  spark            Apache Spark
+8081/tcp open  blackice-icecap?
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json; charset=UTF-8
+|     content-length: 74
+|     {"errors":["Unable to load requested file /nice ports,/Trinity.txt.bak."]}
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Content-Type: text/html
+|     Date: Tue, 13 Sep 2022 17:55:08 GMT
+|     Expires: Tue, 13 Sep 2022 18:00:08 GMT
+|     Cache-Control: private, max-age=300
+|     Last-Modified: Tue, 13 Sep 2022 16:44:26 GMT
+|     content-length: 2137
+|     <!--
+|     Licensed to the Apache Software Foundation (ASF) under one
+|     more contributor license agreements. See the NOTICE file
+|     distributed with this work for additional information
+|     regarding copyright ownership. The ASF licenses this file
+|     under the Apache License, Version 2.0 (the
+|     "License"); you may not use this file except in compliance
+|     with the License. You may obtain a copy of the License at
+|     http://www.apache.org/licenses/LICENSE-2.0
+|     Unless required by applicable law or agreed to in writing, software
+|     distributed under the License is distributed on an "AS IS" BASIS,
+|     WITHOUT WARRANTIES OR CONDITIONS OF
+|   SIPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json; charset=UTF-8
+|     Access-Control-Allow-Origin: *
+|     Connection: keep-alive
+|     content-length: 25
+|     {"errors":["Not found."]}
+|   WWWOFFLEctrlstat: 
+|     HTTP/1.1 404 Not Found
+|     Content-Type: application/json; charset=UTF-8
+|     content-length: 58
+|_    {"errors":["Unable to load requested file /bad-request."]}
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8081-TCP:V=7.92%I=7%D=9/13%Time=6320C3FB%P=x86_64-apple-darwin21.5.
+SF:0%r(GetRequest,93B,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/htm
+SF:l\r\nDate:\x20Tue,\x2013\x20Sep\x202022\x2017:55:08\x20GMT\r\nExpires:\
+SF:x20Tue,\x2013\x20Sep\x202022\x2018:00:08\x20GMT\r\nCache-Control:\x20pr
+SF:ivate,\x20max-age=300\r\nLast-Modified:\x20Tue,\x2013\x20Sep\x202022\x2
+SF:016:44:26\x20GMT\r\ncontent-length:\x202137\r\n\r\n<!--\n\x20\x20~\x20L
+SF:icensed\x20to\x20the\x20Apache\x20Software\x20Foundation\x20\(ASF\)\x20
+SF:under\x20one\n\x20\x20~\x20or\x20more\x20contributor\x20license\x20agre
+SF:ements\.\x20\x20See\x20the\x20NOTICE\x20file\n\x20\x20~\x20distributed\
+SF:x20with\x20this\x20work\x20for\x20additional\x20information\n\x20\x20~\
+SF:x20regarding\x20copyright\x20ownership\.\x20\x20The\x20ASF\x20licenses\
+SF:x20this\x20file\n\x20\x20~\x20to\x20you\x20under\x20the\x20Apache\x20Li
+SF:cense,\x20Version\x202\.0\x20\(the\n\x20\x20~\x20\"License\"\);\x20you\
+SF:x20may\x20not\x20use\x20this\x20file\x20except\x20in\x20compliance\n\x2
+SF:0\x20~\x20with\x20the\x20License\.\x20\x20You\x20may\x20obtain\x20a\x20
+SF:copy\x20of\x20the\x20License\x20at\n\x20\x20~\n\x20\x20~\x20\x20\x20\x2
+SF:0\x20http://www\.apache\.org/licenses/LICENSE-2\.0\n\x20\x20~\n\x20\x20
+SF:~\x20Unless\x20required\x20by\x20applicable\x20law\x20or\x20agreed\x20t
+SF:o\x20in\x20writing,\x20software\n\x20\x20~\x20distributed\x20under\x20t
+SF:he\x20License\x20is\x20distributed\x20on\x20an\x20\"AS\x20IS\"\x20BASIS
+SF:,\n\x20\x20~\x20WITHOUT\x20WARRANTIES\x20OR\x20CONDITIONS\x20OF")%r(Fou
+SF:rOhFourRequest,A7,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x2
+SF:0application/json;\x20charset=UTF-8\r\ncontent-length:\x2074\r\n\r\n{\"
+SF:errors\":\[\"Unable\x20to\x20load\x20requested\x20file\x20/nice\x20port
+SF:s,/Trinity\.txt\.bak\.\"\]}")%r(SIPOptions,AE,"HTTP/1\.1\x20404\x20Not\
+SF:x20Found\r\nContent-Type:\x20application/json;\x20charset=UTF-8\r\nAcce
+SF:ss-Control-Allow-Origin:\x20\*\r\nConnection:\x20keep-alive\r\ncontent-
+SF:length:\x2025\r\n\r\n{\"errors\":\[\"Not\x20found\.\"\]}")%r(WWWOFFLEct
+SF:rlstat,97,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Type:\x20applica
+SF:tion/json;\x20charset=UTF-8\r\ncontent-length:\x2058\r\n\r\n{\"errors\"
+SF::\[\"Unable\x20to\x20load\x20requested\x20file\x20/bad-request\.\"\]}");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.102
+Host is up (0.026s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+8080/tcp open  http    Jetty 9.4.z-SNAPSHOT
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Dashboard [Jenkins]
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.119
+Host is up (0.026s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.5
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 05:8e:c4:bc:0f:22:b1:83:1e:4f:de:2c:37:24:cf:cd (ECDSA)
+|_  256 21:0b:b8:43:3b:7a:63:41:54:6f:07:88:26:a3:61:3c (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Genesis Security &#8211; All things Genesis
+|_http-generator: WordPress 5.7
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.205
+Host is up (0.023s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 8e:79:8a:89:64:3a:ab:16:c0:70:c5:f0:77:b5:3a:8e (ECDSA)
+|_  256 8a:1d:e9:f9:8e:c8:7c:b9:28:27:6f:a6:25:77:4d:3d (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Genesis Blog
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.110.213
+Host is up (0.025s latency).
+Not shown: 988 closed tcp ports (conn-refused)
+PORT      STATE SERVICE      VERSION
+80/tcp    open  http         Apache httpd 2.4.37 ((Win32) OpenSSL/1.0.2p PHP/5.6.39)
+|_http-server-header: Apache/2.4.37 (Win32) OpenSSL/1.0.2p PHP/5.6.39
+|_http-title: Genesis Security
+| http-methods: 
+|_  Potentially risky methods: TRACE
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+443/tcp   open  ssl/http     Apache httpd 2.4.37 ((Win32) OpenSSL/1.0.2p PHP/5.6.39)
+|_http-server-header: Apache/2.4.37 (Win32) OpenSSL/1.0.2p PHP/5.6.39
+| tls-alpn: 
+|_  http/1.1
+|_http-title: Genesis Security
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+445/tcp   open  microsoft-ds Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49155/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+49157/tcp open  msrpc        Microsoft Windows RPC
+49160/tcp open  msrpc        Microsoft Windows RPC
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   3.0.2: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2022-09-13T17:57:16
+|_  start_date: 2022-09-13T09:41:36
+
+Nmap scan report for 10.10.110.254
+Host is up (0.028s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+53/tcp open  domain  (generic dns response: REFUSED)
+80/tcp open  http    nginx
+|_http-title: pfSense - Login
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.92%I=7%D=9/13%Time=6320C406%P=x86_64-apple-darwin21.5.0%
+SF:r(DNSVersionBindReqTCP,E,"\0\x0c\0\x06\x81\x05\0\0\0\0\0\0\0\0");
+
+Post-scan script results:
+| clock-skew: 
+|   -11m54s: 
+|     10.10.110.58
+|     10.10.110.213
+|     10.10.110.25
+|_    10.10.110.5
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Sep 13 13:57:42 2022 -- 256 IP addresses (15 hosts up) scanned in 309.01 seconds

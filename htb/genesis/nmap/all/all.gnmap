@@ -1,0 +1,32 @@
+# Nmap 7.92 scan initiated Tue Sep 13 13:52:33 2022 as: nmap -oA nmap/all -sV -sC 10.10.110.0/24
+Host: 10.10.110.3 ()	Status: Up
+Host: 10.10.110.3 ()	Ports: 53/open/tcp//domain//Simple DNS Plus/, 88/open/tcp//kerberos-sec//Microsoft Windows Kerberos (server time: 2022-09-13 21:55:02Z)/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 389/open/tcp//ldap//Microsoft Windows Active Directory LDAP (Domain: genesis.local0., Site: Default-First-Site-Name)/, 445/open/tcp//microsoft-ds?///, 464/open/tcp//kpasswd5?///, 593/open/tcp//ncacn_http//Microsoft Windows RPC over HTTP 1.0/, 636/open/tcp//tcpwrapped///, 3268/open/tcp//ldap//Microsoft Windows Active Directory LDAP (Domain: genesis.local0., Site: Default-First-Site-Name)/, 3269/open/tcp//tcpwrapped///	Ignored State: closed (989)
+Host: 10.10.110.5 ()	Status: Up
+Host: 10.10.110.5 ()	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds?///	Ignored State: closed (997)
+Host: 10.10.110.10 ()	Status: Up
+Host: 10.10.110.10 ()	Ports: 22/open/tcp//ssh//OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)/, 3306/open/tcp//mysql//MySQL 5.5.62-0ubuntu0.14.04.1/	Ignored State: closed (998)
+Host: 10.10.110.12 ()	Status: Up
+Host: 10.10.110.12 ()	Ports: 21/open/tcp//ftp//vsftpd 3.0.5/, 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52 ((Ubuntu))/	Ignored State: closed (997)
+Host: 10.10.110.20 ()	Status: Up
+Host: 10.10.110.20 ()	Ports: 21/open/tcp//ftp//Microsoft ftpd/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds?///	Ignored State: closed (996)
+Host: 10.10.110.25 ()	Status: Up
+Host: 10.10.110.25 ()	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds?///	Ignored State: closed (997)
+Host: 10.10.110.45 ()	Status: Up
+Host: 10.10.110.45 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52 ((Ubuntu))/	Ignored State: closed (998)
+Host: 10.10.110.58 ()	Status: Up
+Host: 10.10.110.58 ()	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 445/open/tcp//microsoft-ds//Windows Server 2016 Standard 14393 microsoft-ds/, 1433/open/tcp//ms-sql-s//Microsoft SQL Server 2019 15.00.2000.00; RTM/	Ignored State: closed (996)
+Host: 10.10.110.60 ()	Status: Up
+Host: 10.10.110.60 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Werkzeug httpd 2.0.2 (Python 3.10.4)/	Ignored State: closed (998)
+Host: 10.10.110.78 ()	Status: Up
+Host: 10.10.110.78 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 6123/open/tcp//spark//Apache Spark/, 8081/open/tcp//blackice-icecap?///	Ignored State: closed (997)
+Host: 10.10.110.102 ()	Status: Up
+Host: 10.10.110.102 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 8080/open/tcp//http//Jetty 9.4.z-SNAPSHOT/	Ignored State: closed (998)
+Host: 10.10.110.119 ()	Status: Up
+Host: 10.10.110.119 ()	Ports: 21/open/tcp//ftp//vsftpd 3.0.5/, 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52 ((Ubuntu))/	Ignored State: closed (997)
+Host: 10.10.110.205 ()	Status: Up
+Host: 10.10.110.205 ()	Ports: 22/open/tcp//ssh//OpenSSH 8.9p1 Ubuntu 3 (Ubuntu Linux; protocol 2.0)/, 80/open/tcp//http//Apache httpd 2.4.52 ((Ubuntu))/	Ignored State: closed (998)
+Host: 10.10.110.213 ()	Status: Up
+Host: 10.10.110.213 ()	Ports: 80/open/tcp//http//Apache httpd 2.4.37 ((Win32) OpenSSL|1.0.2p PHP|5.6.39)/, 135/open/tcp//msrpc//Microsoft Windows RPC/, 139/open/tcp//netbios-ssn//Microsoft Windows netbios-ssn/, 443/open/tcp//ssl|http//Apache httpd 2.4.37 ((Win32) OpenSSL|1.0.2p PHP|5.6.39)/, 445/open/tcp//microsoft-ds//Microsoft Windows Server 2008 R2 - 2012 microsoft-ds/, 49152/open/tcp//msrpc//Microsoft Windows RPC/, 49153/open/tcp//msrpc//Microsoft Windows RPC/, 49154/open/tcp//msrpc//Microsoft Windows RPC/, 49155/open/tcp//msrpc//Microsoft Windows RPC/, 49156/open/tcp//msrpc//Microsoft Windows RPC/, 49157/open/tcp//msrpc//Microsoft Windows RPC/, 49160/open/tcp//msrpc//Microsoft Windows RPC/	Ignored State: closed (988)
+Host: 10.10.110.254 ()	Status: Up
+Host: 10.10.110.254 ()	Ports: 53/open/tcp//domain//(generic dns response: REFUSED)/, 80/open/tcp//http//nginx/	Ignored State: filtered (998)
+# Nmap done at Tue Sep 13 13:57:42 2022 -- 256 IP addresses (15 hosts up) scanned in 309.01 seconds
