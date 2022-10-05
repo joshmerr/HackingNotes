@@ -1,0 +1,21 @@
+------------------
+NOTES
+------------------
+
+nmap scan find web server and mysql database
+
+gobuster with a proxy to find the blog
+	gobuster -p socks5:127.1:9050 -u https://172.16.1.12/
+
+find /blog, looking around see the category.php file
+	vulnerable to sqli
+
+Using sqlmap to find DBs and Tables, eventually dump user info
+	proxychains sqlmap -u http://172.16.1.12/blog/category.php?id= -D blog_admin_db -T membership_users --dump
+	dumps some user password hashes
+
+Crack MD5s for admin and ben
+
+log into admin area with creds and create a new blog with a revshell upload but no avail
+
+ssh in with ben:Welcometomyblog

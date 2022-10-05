@@ -1,0 +1,18 @@
+------------------
+NOTES
+------------------
+Wireshark
+	http.request.method == GET or http.request.method == POST
+
+------------------
+PROCESS
+------------------
+
+Open the pcap in wireshark, can pull the uri easily
+
+On the request that uploaded the shell, right click and follow tcp stream, a rev shell in php tags is shown
+
+Basic flow is upload the shell, get the file to execute, if you follow the stream of a later packet (29) can see the execution of netcat
+	this stream has all the info needed to get in
+
+actor dropped a backdoor, can view gh source

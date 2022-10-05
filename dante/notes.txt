@@ -2,67 +2,25 @@
 NOTES
 ------------------
 
-SSH Tunneling / pivoting
-----------------------
-sudo sshuttle -vr root@10.10.110.100 172.16.1.0/24 --ssh-cmd "ssh -i id_rsa.root100"
-	will act as basically on the network (can run comannd normally i.e. ssh frank@172.16.1.10)
-https://theyhack.me/Proxychains-Double-Pivoting/#demo-round-2
-----------------------
+https://www.hackingarticles.in/powershell-for-pentester-windows-reverse-shell/
 
-Your entry point is in 10.10.110.0/24. The firewall at 10.10.110.2 is out of scope
+10.10.110.0/24
 
-Entry = 10.10.110.100
-
-- Update links to to utilize DNS Name prior to changing to port 80 - PENDING
-- Remove LFI vuln from the other site - PENDING -- WORK HERE
-- Harden the system prior to the Junior Pen Tester assessment - IN PROGRESS
-
-CREDENTIALS
------------
-james:toyota
-shaun:password 	(MySQL on .100)
-margaret:Welcome1!2@3#
-frank:TractorHeadtorchDeskmat
-
-OWNED MACHINES
---------------
-.10 	- 	user 	- 	root
-.100 	- 	user 	- 	root
-
-
-172.16.1.0/24 subnet
-
-172.16.1.10  -- LFI VULN -- ROOTED
-	web server and SMB - dante hosting
-	not many pages
-	nav.php (comamnd injection?)
-	gobuster scan next step
-172.16.1.12
-	lots of output
-	21, 3306, 80 not sure?
-	dante hosting again
-	UNIX HOST
-172.16.1.13
-	80 and 445 smb signing not required
-	XAMPP
-	WINDOWS HOST
-		apache - mariadb - php - perl for windows
-172.16.1.17
-	WEBMIN
-	got a file from smb is it a log?
-172.16.1.19
-	80, 8080
-	Jenkins login on 8080
-172.16.1.20
-	DOMAIN CONTROLLER
-	DANTE.local
-	remote web access is off
-	windows server 2012
-172.16.1.100 	-- ROOTED
-	initial foothold/ webserver (rooted)
-172.16.1.102
-	Marriage registration system
-	DANTE-WS03
-	Has a buffer overflow
-	easy public epxloit
-
+10.10.110.100
+	21 - anon login
+		- Finalize Wordpress permission changes - PENDING
+		- Update links to to utilize DNS Name prior to changing to port 80 - PENDING
+		- Remove LFI vuln from the other site - PENDING
+		- Reset James' password to something more secure - PENDING
+		- Harden the system prior to the Junior Pen Tester assessment - IN PROGRESS
+	22
+	65000 - apache
+		/robots.txt flag
+		/wordpress - skipping gobuster for now
+		wpscan
+			ood wordpress version
+			try login w user james? -> lame
+			found wp-config
+				MySQL database creds - shaun:password
+			WP LOGIN
+				james:Toyota

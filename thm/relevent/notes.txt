@@ -1,0 +1,23 @@
+------------------
+NOTES
+------------------
+SMBCLINET
+	smbclient -L $ip
+		lists all the shares
+
+------------------
+PROCESS
+------------------
+
+Nmap scan reveals a couple ports open, standard for windows
+
+Using smbclient we can see there is a share with anon access
+	nt4wrksv
+	in the share there is passwords.txt - can get users and passwords from the file but no use
+
+Enumerating the rest of the services, we can see another webserver on port 49663
+	dir scanning 80 and 49663 we can see 49663 is a mirror of the smb service
+
+Since nt4wrksv is writable as a user, we can upload a shell (msfvenom windows) to the server and execute it with a curl command
+
+on the system, whoami /priv reveals tokens set, can use PrintSpoofer.exe to get root
