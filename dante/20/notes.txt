@@ -1,0 +1,10 @@
+------------------
+NOTES
+------------------
+
+SMB server running on windows server 2012... etnernal blue
+
+xlsx file on user desktop
+	has user creds, need to unhide column B
+
+
